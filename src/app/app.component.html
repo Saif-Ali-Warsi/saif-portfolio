@@ -1,1 +1,57 @@
-auto setup works finally
+<nav class="nav">
+  <div class="logo">SAIF</div>
+  <div class="links">
+    <span (click)="scrollTo('hero')">Home</span>
+    <span (click)="scrollTo('skills')">Skills</span>
+    <span (click)="scrollTo('experience')">Experience</span>
+    <span (click)="scrollTo('projects')">Projects</span>
+    <span (click)="scrollTo('education')">Education</span>
+  </div>
+</nav>
+
+<section id="hero" class="hero">
+  <h1>{{ profile.name }}</h1>
+  <h2>{{ profile.role }}</h2>
+  <p>{{ profile.location }} | {{ profile.email }} | {{ profile.phone }}</p>
+  <p>{{ profile.linkedin }}</p>
+  <p>{{ profile.summary }}</p>
+</section>
+
+<section id="skills" class="section">
+  <h2>Core Skills</h2>
+  <div class="grid">
+    <div class="glass" *ngFor="let s of skillGroups">
+      <h3>{{ s.title }}</h3>
+      <p>{{ s.items }}</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <h2>Experience</h2>
+  <div class="glass mb-20" *ngFor="let exp of experience">
+    <h3>{{ exp.company }}</h3>
+    <p>{{ exp.role }} • {{ exp.duration }}</p>
+    <ul>
+      <li *ngFor="let p of exp.points">{{ p }}</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="glass mb-20" *ngFor="let p of projects">
+    <h3>{{ p.name }}</h3>
+    <p>{{ p.desc }} • {{ p.role }}</p>
+    <ul>
+      <li *ngFor="let pt of p.points">{{ pt }}</li>
+    </ul>
+  </div>
+</section>
+
+<section id="education" class="section">
+  <h2>Education</h2>
+  <ul>
+    <li *ngFor="let e of education">{{ e }}</li>
+  </ul>
+</section>

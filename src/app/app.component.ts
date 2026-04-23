@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit {
     location: 'Pune, India',
     email: 'warsivorlox@gmail.com',
     phone: '09370084757',
-    linkedin: 'linkedin.com/in/saif-warsi-8019a811b',
+    linkedin: 'linkedin.com/in/saif-ali-8019a811b',
     summary: `Frontend Developer with 5 years of experience in Angular. Specialized in building scalable, high-performance web applications using Angular, TypeScript, RxJS, HTML, and CSS/SCSS. Strong experience in developing reusable UI components and integrating REST APIs. Proven ability to optimize performance, enhance user experience, and deliver enterprise-grade SaaS products.`
   };
 

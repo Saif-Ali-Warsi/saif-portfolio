@@ -10,6 +10,7 @@
   position: sticky;
   top: 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 15px 40px;
   backdrop-filter: blur(10px);
@@ -31,6 +32,12 @@
       opacity: 1;
     }
   }
+
+  .downloadable {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 }
 
 .mb-20 {
@@ -43,6 +50,17 @@ p {
 
 li {
   margin: 0 0 15px;
+}
+
+a.no-style {
+  all: unset;
+}
+
+.linkedin-link {
+  color: #00ffff;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  padding-bottom: 1px;
 }
 
 /* HERO */
@@ -115,5 +133,98 @@ li {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.Documents-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  height: 35px;
+  border: none;
+  padding: 0px 10px;
+  border-radius: 5px;
+  background-color: rgb(49, 49, 83);
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.folderContainer {
+  width: 25px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+.fileBack {
+  z-index: 1;
+  width: 80%;
+  height: auto;
+}
+.filePage {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  transition: all 0.3s ease-out;
+}
+.fileFront {
+  width: 85%;
+  height: auto;
+  position: absolute;
+  z-index: 3;
+  opacity: 0.95;
+  transform-origin: bottom;
+  transition: all 0.3s ease-out;
+}
+.text {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.Documents-btn:hover .filePage {
+  transform: translateY(-5px);
+}
+.Documents-btn:hover {
+  background-color: rgb(58, 58, 94);
+}
+.Documents-btn:active {
+  transform: scale(0.95);
+}
+.Documents-btn:hover .fileFront {
+  transform: rotateX(30deg);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 30px 20px;
+    h2 {
+      margin-bottom: 20px;
+    }
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  ul {
+    padding: 10px;
+  }
+
+  .nav {
+    padding: 15px 20px;
+
+    .downloadable {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .links {
+      display: none;
+    }
   }
 }

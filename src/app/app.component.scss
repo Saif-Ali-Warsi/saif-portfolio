@@ -150,37 +150,13 @@ a.no-style {
   cursor: pointer;
   transition: all 0.3s;
 }
-.folderContainer {
-  width: 25px;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  position: relative;
+
+.download-icon {
+  max-width: 20px;
+  border-radius: 10px;
 }
-.fileBack {
-  z-index: 1;
-  width: 80%;
-  height: auto;
-}
-.filePage {
-  width: 50%;
-  height: auto;
-  position: absolute;
-  z-index: 2;
-  transition: all 0.3s ease-out;
-}
-.fileFront {
-  width: 85%;
-  height: auto;
-  position: absolute;
-  z-index: 3;
-  opacity: 0.95;
-  transform-origin: bottom;
-  transition: all 0.3s ease-out;
-}
-.text {
+
+.download-text {
   color: white;
   font-size: 14px;
   font-weight: 500;

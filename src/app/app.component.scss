@@ -40,10 +40,6 @@
   }
 }
 
-.mb-20 {
-  margin: 0 0 20px;
-}
-
 p {
   line-height: 22px;
 }
@@ -54,6 +50,21 @@ li {
 
 a.no-style {
   all: unset;
+}
+
+.d-flex {
+  display: flex;
+}
+.align-center {
+  align-items: center;
+}
+.gap-10 {
+  gap: 10px;
+}
+
+.gif-icon {
+  max-width: 35px;
+  border-radius: 50%;
 }
 
 .linkedin-link {
@@ -87,9 +98,16 @@ a.no-style {
   padding: 30px 60px;
 
   h2 {
-    margin-bottom: 40px;
-    font-size: 2rem;
+    font-size: 24px;
+    margin: 0;
   }
+}
+
+.mb-30 {
+  margin: 0 0 30px;
+}
+.mb-20 {
+  margin: 0 0 20px;
 }
 
 /* GRID */
@@ -157,7 +175,6 @@ a.no-style {
 }
 
 .download-text {
-  color: white;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.5px;

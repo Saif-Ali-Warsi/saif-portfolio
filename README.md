@@ -1,27 +1,92 @@
-# SaifPortfolio
+<div align="center">
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+# 👋 Hi, I'm Saif Ali
 
-## Development server
+### Senior Frontend Developer | Angular Developer
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Building scalable, high-performance web applications with Angular, TypeScript, and modern frontend technologies.
 
-## Code scaffolding
+🌐 **Live Portfolio**
+https://saif-ali-warsi.github.io/saif-portfolio/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-success?style=for-the-badge)](https://saif-ali-warsi.github.io/saif-portfolio/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Saif%20Ali-blue?style=for-the-badge\&logo=linkedin)](https://linkedin.com/in/saif-warsi-8019a811b)
+[![GitHub](https://img.shields.io/badge/GitHub-Saif--Ali--Warsi-black?style=for-the-badge\&logo=github)](https://github.com/Saif-Ali-Warsi)
 
-## Build
+</div>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+# 👨‍💻 About Me
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+I'm a **Senior Frontend Developer** with **5 years of experience in Angular development** and **8 years of overall IT experience**.
 
-## Running end-to-end tests
+I enjoy building scalable, maintainable, and user-friendly web applications using modern frontend technologies. My experience includes enterprise SaaS products, live e-commerce applications, healthcare dashboards, reusable component development, REST API integration, authentication, and performance optimization.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+# 🛠️ Tech Stack
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<p align="center">
+<img src="https://skillicons.dev/icons?i=angular,typescript,javascript,html,css,bootstrap,git,github,vscode,figma,npm" />
+</p>
+
+### Frontend
+
+* Angular
+* TypeScript
+* JavaScript (ES6+)
+* HTML5
+* CSS3 / SCSS
+
+### Libraries & Frameworks
+
+* RxJS
+* NgRx
+* Angular Material
+* PrimeNG
+* Bootstrap
+
+### Concepts
+
+* REST API Integration
+* JWT Authentication
+* Reactive Forms
+* Razorpay Payment Gateway Integration
+* State Management
+* Performance Optimization
+* Responsive Web Design
+
+### Tools
+
+* Git
+* GitHub
+* Jira
+* Figma
+* VS Code
+* Cursor
+
+---
+
+# 🎓 Education
+
+* **Master of Computer Applications (MCA)** – Bharati Vidyapeeth University
+* **Bachelor of Computer Applications (BCA)** – Invertis University
+* **Web Development Certification** – NIIT
+
+---
+
+# 📫 Connect With Me
+
+* 📧 **Email:** [warsivorlox@gmail.com](mailto:warsivorlox@gmail.com)
+* 🌐 **Portfolio:** https://saif-ali-warsi.github.io/saif-portfolio/
+* 💼 **LinkedIn:** https://linkedin.com/in/saif-warsi-8019a811b
+* 💻 **GitHub:** https://github.com/Saif-Ali-Warsi
+
+---
+
+<div align="center">
+
+⭐ Thanks for visiting my portfolio repository!
+
+</div>

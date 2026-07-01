@@ -68,14 +68,6 @@ I enjoy building scalable, maintainable, and user-friendly web applications usin
 
 ---
 
-# 🎓 Education
-
-* **Master of Computer Applications (MCA)** – Bharati Vidyapeeth University
-* **Bachelor of Computer Applications (BCA)** – Invertis University
-* **Web Development Certification** – NIIT
-
----
-
 # 📫 Connect With Me
 
 * 📧 **Email:** [warsivorlox@gmail.com](mailto:warsivorlox@gmail.com)

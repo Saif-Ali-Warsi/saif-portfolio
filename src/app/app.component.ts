@@ -1,9 +1,6 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-
-
-
 
 @Component({
   selector: 'app-root',
@@ -12,14 +9,7 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-
-
-
-
-
 export class AppComponent implements AfterViewInit {
-
-  activeSection = 'hero';
 
   profile = {
     name: 'Saif Ali',
@@ -143,20 +133,21 @@ export class AppComponent implements AfterViewInit {
     'Web Development Certification – NIIT'
   ];
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngAfterViewInit() {
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.activeSection = entry.target.id;
-        }
-      });
-    }, { threshold: 0.4 });
+    if (isPlatformBrowser(this.platformId)) {
+      // Smooth Scroll-Reveal Effect Observer
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.15 });
 
-    sections.forEach(s => observer.observe(s));
-  }
-
-  scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+      revealElements.forEach((el) => revealObserver.observe(el));
+    }
   }
 }

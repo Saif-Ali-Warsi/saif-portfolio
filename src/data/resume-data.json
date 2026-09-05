@@ -134,5 +134,84 @@
       "degree": "Web Development Certification",
       "institution": "NIIT"
     }
+  ],
+
+  "techStack": [
+    {
+      "name": "Angular",
+      "badgeUrl": "https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white",
+      "glowColor": "rgba(221, 0, 49, 0.75)"
+    },
+    {
+      "name": "React",
+      "badgeUrl": "https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black",
+      "glowColor": "rgba(97, 218, 251, 0.75)"
+    },
+    {
+      "name": "TypeScript",
+      "badgeUrl": "https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white",
+      "glowColor": "rgba(49, 120, 198, 0.75)"
+    },
+    {
+      "name": "JavaScript",
+      "badgeUrl": "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black",
+      "glowColor": "rgba(247, 223, 30, 0.75)"
+    },
+    {
+      "name": "Tailwind CSS",
+      "badgeUrl": "https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=for-the-badge&logo=tailwind-css&logoColor=white",
+      "glowColor": "rgba(56, 189, 248, 0.75)"
+    },
+    {
+      "name": "CSS3",
+      "badgeUrl": "https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white",
+      "glowColor": "rgba(21, 114, 182, 0.75)"
+    },
+    {
+      "name": "jQuery",
+      "badgeUrl": "https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white",
+      "glowColor": "rgba(7, 105, 173, 0.75)"
+    },
+    {
+      "name": "Node.js",
+      "badgeUrl": "https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white",
+      "glowColor": "rgba(51, 153, 51, 0.75)"
+    },
+    {
+      "name": "PostgreSQL",
+      "badgeUrl": "https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white",
+      "glowColor": "rgba(65, 105, 225, 0.75)"
+    },
+    {
+      "name": "RxJS",
+      "badgeUrl": "https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white",
+      "glowColor": "rgba(183, 23, 140, 0.75)"
+    },
+    {
+      "name": "Vite",
+      "badgeUrl": "https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white",
+      "glowColor": "rgba(100, 108, 255, 0.75)"
+    },
+    {
+      "name": "HTML5",
+      "badgeUrl": "https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white",
+      "glowColor": "rgba(227, 79, 38, 0.75)"
+    },
+    {
+      "name": "SCSS",
+      "badgeUrl": "https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white",
+      "glowColor": "rgba(204, 102, 153, 0.75)"
+    },
+    {
+      "name": "Bootstrap",
+      "badgeUrl": "https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white",
+      "glowColor": "rgba(121, 82, 179, 0.75)"
+    },
+    {
+      "name": "Git",
+      "badgeUrl": "https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white",
+      "glowColor": "rgba(240, 80, 50, 0.75)"
+    }
   ]
+
 }

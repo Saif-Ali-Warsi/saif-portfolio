@@ -1,220 +1,73 @@
-:host {
-  display: block;
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  color: #e2e8f0;
-  font-family: "Inter", sans-serif;
+.badge-glow-item {
+  border-radius: 0.375rem;
+  /* Soft, subtle ambient glow without intense blur or hover scaling */
+  box-shadow: 0 0 6px var(--glow-color);
+  filter: drop-shadow(0 0 3px var(--glow-color));
+  transition: opacity 0.2s ease-in-out;
 }
 
-/* NAV */
-.nav {
-  position: sticky;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 40px;
-  backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 100;
+// @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;700;900&display=swap");
 
-  .links span {
-    margin-left: 20px;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: 0.3s;
+/* SVG Handwriting Animation */
+.handwriting-stroke {
+  // font-family: "Dancing Script", cursive, sans-serif;
+  fill: #f8fafc; /* Final text color */
+  stroke: #38bdf8; /* Writing pen color */
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: writeText 2.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
 
-    &.active {
-      color: #60a5fa;
-      opacity: 1;
-    }
-
-    &:hover {
-      opacity: 1;
-    }
+@keyframes writeText {
+  0% {
+    stroke-dashoffset: 1000;
+    fill-opacity: 0;
   }
-
-  .downloadable {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  70% {
+    stroke-dashoffset: 0;
+    fill-opacity: 0.2;
+    stroke: #38bdf8;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+    stroke: transparent;
   }
 }
 
-p {
-  line-height: 22px;
-}
-
-li {
-  margin: 0 0 15px;
-}
-
-a.no-style {
-  all: unset;
-}
-
-.d-flex {
-  display: flex;
-}
-.align-center {
-  align-items: center;
-}
-.gap-10 {
-  gap: 10px;
-}
-
-.gif-icon {
-  max-width: 35px;
-  border-radius: 50%;
-}
-
-.linkedin-link {
-  color: #00ffff;
-  text-decoration: none;
-  border-bottom: 1px solid;
-  padding-bottom: 1px;
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 30px 20px 0;
-
-  h1 {
-    font-size: 4rem;
-    background: linear-gradient(90deg, #60a5fa, #a78bfa);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-
-  p {
-    max-width: 600px;
-    margin: 20px auto;
-    opacity: 0.6;
-  }
-}
-
-/* SECTION */
-.section {
-  padding: 30px 60px;
-
-  h2 {
-    font-size: 24px;
-    margin: 0;
-  }
-}
-
-.mb-30 {
-  margin: 0 0 30px;
-}
-.mb-20 {
-  margin: 0 0 20px;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-}
-
-/* GLASS CARD */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 15px;
-  padding: 20px;
-  backdrop-filter: blur(12px);
-  transition: 0.3s;
-
-  &:hover {
-    transform: translateY(-8px);
-    border-color: #6366f1;
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
-  }
-}
-
-/* TIMELINE */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* REVEAL ANIMATION */
-.reveal {
+/* Secondary Role Fade-In Effect */
+.write-in-delay {
   opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 0.8s ease forwards;
+  animation: fadeInRole 1s ease-out 2.2s forwards;
 }
 
-@keyframes fadeUp {
+@keyframes fadeInRole {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.Documents-btn {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: fit-content;
-  height: 35px;
-  border: none;
-  padding: 0px 10px;
-  border-radius: 5px;
-  background-color: rgb(49, 49, 83);
-  gap: 6px;
-  cursor: pointer;
-  transition: all 0.3s;
+
+.write-in-delay {
+  opacity: 0;
+  animation: roleReveal 0.8s ease-out 1.8s forwards;
 }
 
-.download-icon {
-  max-width: 20px;
-  border-radius: 10px;
-}
-
-.download-text {
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-.Documents-btn:hover .filePage {
-  transform: translateY(-5px);
-}
-.Documents-btn:hover {
-  background-color: rgb(58, 58, 94);
-}
-.Documents-btn:active {
-  transform: scale(0.95);
-}
-.Documents-btn:hover .fileFront {
-  transform: rotateX(30deg);
-}
-
-@media (max-width: 640px) {
-  .section {
-    padding: 30px 20px;
+@keyframes roleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-
-  h1 {
-    margin: 0;
-  }
-
-  ul {
-    padding: 10px;
-  }
-
-  .nav {
-    padding: 15px 20px;
-
-    .downloadable {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .links {
-      display: none;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

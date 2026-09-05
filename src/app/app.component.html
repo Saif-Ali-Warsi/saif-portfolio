@@ -1,6 +1,5 @@
 <div class="min-h-screen bg-[#070A11] text-slate-200 selection:bg-cyan-500 selection:text-black font-sans antialiased relative overflow-x-hidden">
   
-  <!-- Global Faded Animated Grid Background -->
   <div class="global-grid-bg">
     <div class="shine"></div>
     <div class="tiles">
@@ -26,15 +25,12 @@
     </div>
   </div>
 
-  <!-- Background Glow FX -->
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[450px] bg-gradient-to-b from-cyan-500/10 via-indigo-500/5 to-transparent blur-[120px] pointer-events-none"></div>
 
-  <!-- Redesigned Minimalist Floating Resume Button -->
   <aside class="fixed bottom-6 right-6 z-50">
     <a href="assets/saif-cv-developer.pdf" download="saif-cv-developer.pdf"
        class="group relative inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-slate-900/90 text-slate-100 font-semibold text-xs sm:text-sm tracking-wide border border-cyan-500/30 backdrop-blur-md shadow-xl shadow-cyan-950/40 hover:border-cyan-400 hover:text-cyan-300 hover:scale-105 active:scale-95 transition-all duration-300">
       
-      <!-- Animated Status Pulse Dot -->
       <span class="relative flex h-2 w-2">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
@@ -42,7 +38,6 @@
 
       <span>Download Resume</span>
 
-      <!-- Subtle Download SVG Icon -->
       <svg class="w-4 h-4 text-cyan-400 group-hover:translate-y-0.5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
       </svg>
@@ -51,7 +46,6 @@
 
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20 space-y-24 relative z-10">
     
-    <!-- Hero Section -->
     <section id="hero" class="scroll-reveal pt-4 pb-8 flex flex-col items-center text-center space-y-6">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-semibold tracking-wide uppercase">
         <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
@@ -59,14 +53,13 @@
       </div>
       
       <h1 class="text-4xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400 tracking-tight leading-tight">
-        {{ profile.name }}
+        {{ data.profile.name }}
       </h1>
       
       <h2 class="text-xl sm:text-2xl font-bold text-cyan-400">
-        {{ profile.role }}
+        {{ data.profile.role }}
       </h2>
 
-      <!-- Tech Stack Badges -->
       <div class="w-full max-w-3xl pt-2">
         <p class="text-xs uppercase font-bold text-slate-500 tracking-wider mb-3">Tech Stack & Tools</p>
         <div class="flex flex-wrap justify-center gap-2">
@@ -85,30 +78,23 @@
         </div>
       </div>
 
-      <!-- Contact Info -->
       <div class="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-400 pt-2">
-        <span>📍 {{ profile.location }}</span>
+        <span>📍 {{ data.profile.location }}</span>
         <span class="text-slate-700 hidden sm:inline">•</span>
-        <span>✉️ {{ profile.email }}</span>
+        <span>✉️ {{ data.profile.email }}</span>
         <span class="text-slate-700 hidden sm:inline">•</span>
-        <span>📞 {{ profile.phone }}</span>
+        <span>📞 {{ data.profile.phone }}</span>
       </div>
 
-      <!-- LinkedIn Button -->
       <div class="pt-1">
         <a class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-300 bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 px-4 py-2.5 rounded-xl transition-all hover:text-cyan-400 shadow-md"
-           href="https://www.linkedin.com/in/saif-ali-8019a811b" target="_blank">
+           [href]="'https://' + data.profile.linkedin" target="_blank">
           <svg class="w-4 h-4 fill-current text-cyan-400" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>
-          {{ profile.linkedin }}
+          {{ data.profile.linkedin }}
         </a>
       </div>
-
-      <p class="max-w-2xl text-slate-400 text-sm sm:text-base leading-relaxed">
-        {{ profile.summary }}
-      </p>
     </section>
 
-    <!-- Core Skills -->
     <section id="skills" class="scroll-reveal space-y-6">
       <div class="flex items-center gap-3 border-b border-slate-800/80 pb-4">
         <div class="w-10 h-10 rounded-xl overflow-hidden bg-slate-900 border border-slate-800 p-1.5 flex items-center justify-center">
@@ -118,14 +104,13 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-lg hover:border-cyan-500/40 transition-all" *ngFor="let s of skillGroups">
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-lg hover:border-cyan-500/40 transition-all" *ngFor="let s of data.skillGroups">
           <h3 class="text-base sm:text-lg font-bold text-cyan-400 mb-2">{{ s.title }}</h3>
-          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">{{ s.items }}</p>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">{{ s.items.join(', ') }}</p>
         </div>
       </div>
     </section>
 
-    <!-- Work Experience -->
     <section id="experience" class="scroll-reveal space-y-6">
       <div class="flex items-center gap-3 border-b border-slate-800/80 pb-4">
         <div class="w-10 h-10 rounded-xl overflow-hidden bg-slate-900 border border-slate-800 p-1.5 flex items-center justify-center">
@@ -135,7 +120,7 @@
       </div>
 
       <div class="space-y-5">
-        <div class="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md relative overflow-hidden group shadow-lg" *ngFor="let exp of experience">
+        <div class="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md relative overflow-hidden group shadow-lg" *ngFor="let exp of data.experience">
           <div class="absolute top-0 left-0 w-1.5 h-full bg-cyan-500/60 group-hover:bg-cyan-400 transition-colors"></div>
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
             <h3 class="text-lg sm:text-xl font-extrabold text-white">{{ exp.company }}</h3>
@@ -153,7 +138,6 @@
       </div>
     </section>
 
-    <!-- Featured Projects -->
     <section id="projects" class="scroll-reveal space-y-6">
       <div class="flex items-center gap-3 border-b border-slate-800/80 pb-4">
         <div class="w-10 h-10 rounded-xl overflow-hidden bg-slate-900 border border-slate-800 p-1.5 flex items-center justify-center">
@@ -163,7 +147,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-lg flex flex-col justify-between hover:border-cyan-500/40 transition-all group" *ngFor="let p of projects">
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-lg flex flex-col justify-between hover:border-cyan-500/40 transition-all group" *ngFor="let p of data.projects">
           <div>
             <div class="flex items-start justify-between gap-3 mb-3">
               <h3 class="text-xl font-extrabold text-white group-hover:text-cyan-300 transition-colors">
@@ -198,7 +182,6 @@
       </div>
     </section>
 
-    <!-- Education Section -->
     <section id="education" class="scroll-reveal space-y-6">
       <div class="flex items-center gap-3 border-b border-slate-800/80 pb-4">
         <div class="w-10 h-10 rounded-xl overflow-hidden bg-slate-900 border border-slate-800 p-1.5 flex items-center justify-center">
@@ -209,13 +192,16 @@
 
       <div class="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-lg">
         <ul class="space-y-3">
-          <li class="flex items-center gap-3 text-slate-300 text-xs sm:text-sm" *ngFor="let e of education">
+          <li class="flex items-center gap-3 text-slate-300 text-xs sm:text-sm" *ngFor="let e of data.education">
             <span class="w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span>
-            <span class="font-medium">{{ e }}</span>
+            <span class="font-medium">{{ e.degree }}</span>
+            <span class="text-slate-500">•</span>
+            <span class="text-slate-400">{{ e.institution }}</span>
           </li>
         </ul>
       </div>
     </section>
 
   </main>
+
 </div>

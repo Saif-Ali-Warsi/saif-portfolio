@@ -98,9 +98,31 @@
   ],
   "projects": [
     {
+      "name": "Crew Desk HRMS",
+      "desc": "Human Resource Management System",
+      "role": "Full Stack Developer",
+      "image": "https://www.image2url.com/r2/default/images/1788590406657-655af3e2-97d4-4a0f-924f-287b1780cd2d.png",
+      "url": "https://saif-ali-warsi.github.io/crew-desk-hr-frontend/#/login",
+      "points": [
+        "A full-featured Human Resource Management System designed to streamline employee management, recruitment, leave management, job postings, candidate hiring, and HR operations through a modern and responsive web interface."
+      ]
+    },
+    {
+      "name": "Imaginext",
+      "desc": "IMAGINEXT | Exclusive market for photography equipments | Photography | Videography |  Cinematography | Imaginext",
+      "role": "Frontend Developer",
+      "image": "https://www.image2url.com/r2/default/images/1788591314933-6b53887b-f2f0-4ab5-8641-9eedfd3c70a7.png",
+      "url": "https://imaginext.co.in",
+      "points": [
+        "IMAGINEXT is an exclusive market for photography, videography, cinematography and mobile photography equipment with the vision to make world's latest equipments in Imaging accessible to our Indian photography community and help grow the community."
+      ]
+    },
+    {
       "name": "Hyper Inventory",
       "desc": "Warehouse & Inventory Management",
       "role": "Frontend Developer",
+      "image": "https://www.image2url.com/r2/default/images/1788591294066-4408e77d-60a0-4525-8f48-01453bd94773.png",
+      "url": "https://admin.hyperinventory.com/auth/login",
       "points": [
         "Developed a warehouse and inventory management system as a SaaS platform for managing products and stock levels across multiple warehouses.",
         "Implemented CRUD operations for inventory entities such as products, categories, stock entries, and warehouse records.",
@@ -117,6 +139,8 @@
       "name": "Medvise",
       "desc": "Healthcare Monitoring Platform",
       "role": "Frontend Developer",
+      "image": "https://www.image2url.com/r2/default/images/1788592249721-a3f173e1-4d7f-4d6d-bafb-ee554fd58b70.png",
+      "url": "https://medvise.app",
       "points": [
         "Developed responsive dashboards for health monitoring and data visualization.",
         "Integrated APIs for displaying patient vitals, alerts, and activity tracking.",
@@ -129,6 +153,8 @@
       "name": "HyperAds",
       "desc": "Ad Campaign Reporting",
       "role": "Frontend Developer",
+      "image": "https://www.image2url.com/r2/default/images/1788592476614-bb4e0f82-a942-475b-ae75-deb70e4f8487.png",
+      "url": "https://ams.hyperinventory.com/auth/login",
       "points": [
         "Developed a campaign reporting dashboard to visualize ad performance metrics across multiple campaigns.",
         "Optimized dashboard performance by minimizing re-renders and improving data handling efficiency.",

@@ -30,4 +30,15 @@ export class AppComponent implements AfterViewInit {
       revealElements.forEach((el) => revealObserver.observe(el));
     }
   }
+
+// Track expanded state for each project card
+  expandedProjects: { [key: number]: boolean } = {};
+
+  togglePoints(index: number): void {
+    this.expandedProjects[index] = !this.expandedProjects[index];
+  }
+
+  isExpanded(index: number): boolean {
+    return !!this.expandedProjects[index];
+  }
 }

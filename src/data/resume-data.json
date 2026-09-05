@@ -8,62 +8,12 @@
     "linkedin": "linkedin.com/in/saif-ali-8019a811b",
     "summary": "Frontend Developer with 5 years of experience in Angular. Specialized in building scalable, high-performance web applications using Angular, TypeScript, RxJS, HTML, and CSS/SCSS. Strong experience in developing reusable UI components and integrating REST APIs. Proven ability to optimize performance, enhance user experience, and deliver enterprise-grade SaaS products."
   },
-  "skillGroups": [
-    {
-      "title": "Frontend Technologies",
-      "items": [
-        "Angular Framework",
-        "TypeScript",
-        "JavaScript (ES6+)",
-        "HTML5",
-        "CSS/SCSS"
-      ]
-    },
-    {
-      "title": "UI Development",
-      "items": [
-        "Responsive Design",
-        "Cross-browser Compatibility",
-        "Component-based Architecture",
-        "UI Optimization"
-      ]
-    },
-    {
-      "title": "Frameworks & Libraries",
-      "items": [
-        "Angular",
-        "RxJS",
-        "Angular Material",
-        "Bootstrap"
-      ]
-    },
-    {
-      "title": "Tools",
-      "items": [
-        "Jira",
-        "Trello",
-        "Git",
-        "Figma",
-        "VS Code",
-        "Cursor",
-        "Codex"
-      ]
-    },
-    {
-      "title": "Concepts",
-      "items": [
-        "REST API Integration",
-        "State Management",
-        "Performance Optimization",
-        "Reusable Components"
-      ]
-    }
-  ],
   "experience": [
     {
       "company": "Tradexa Technologies",
-      "role": "Senior Frontend Developer (Angular)",
-      "duration": "Apr 2020 – Present",
+      "role": "Senior Frontend Developer",
+      "duration": "2020 – 2026",
+      "image": "https://www.image2url.com/r2/default/images/1788599050941-f4881727-1e7d-4736-b3fb-a9fea6c16a77.png",
       "points": [
         "Developed and maintained scalable Angular applications for SaaS platforms including warehouse management systems, healthcare dashboards, and analytics/reporting tools.",
         "Led frontend development for data-driven applications, implementing complex UI components such as tables, dashboards, and dynamic forms.",
@@ -75,8 +25,9 @@
     },
     {
       "company": "Katalyst Technologies",
-      "role": "Frontend Developer",
+      "role": "Software Developer",
       "duration": "2019 – 2020",
+      "image": "https://www.image2url.com/r2/default/images/1788599039942-31d6d54a-7296-4c3a-b780-0fd36225eb8e.jpg",
       "points": [
         "Developed responsive web applications using HTML, CSS, JavaScript, and basic exposure to Angular.",
         "Worked on UI implementation based on client requirements and design specifications.",
@@ -86,8 +37,9 @@
     },
     {
       "company": "Varahi Technologies",
-      "role": "Web Designer / UI Developer",
+      "role": "UI Developer",
       "duration": "2018 – 2019",
+      "image": "https://www.image2url.com/r2/default/images/1788599030070-24ade9ea-3410-4caf-aab3-e0a5720c91d9.png",
       "points": [
         "Designed and developed responsive web interfaces using HTML, CSS, JavaScript.",
         "Created visually appealing UI layouts aligned with user experience principles.",

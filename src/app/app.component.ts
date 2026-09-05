@@ -11,6 +11,8 @@ import portfolioData from '../../src/data/resume-data.json';
 })
 export class AppComponent implements AfterViewInit {
   data = portfolioData;
+  copied = false;
+  encodeURIComponent = encodeURIComponent;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -42,4 +44,22 @@ export class AppComponent implements AfterViewInit {
   isExpanded(index: number): boolean {
     return !!this.expandedProjects[index];
   }
+
+  copyLinkedIn(url: string) {
+  const fullUrl = url.startsWith('http') ? url : 'https://' + url;
+  navigator.clipboard.writeText(fullUrl).then(() => {
+    this.copied = true;
+    setTimeout(() => {
+      this.copied = false;
+    }, 2000);
+  });
+}
+
+openCallPopup(event: Event, phone: string) {
+  // Allows default tel: behavior on mobile, shows prompt/fallback on desktop if needed
+  if (!window.matchMedia('(max-width: 768px)').matches) {
+    event.preventDefault();
+    alert(`Phone number: ${phone}\n(Clicking will launch your default calling application on supported devices)`);
+  }
+}
 }

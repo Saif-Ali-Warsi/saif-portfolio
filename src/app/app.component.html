@@ -70,188 +70,237 @@
       id="hero"
       class="scroll-reveal pt-4 pb-8 flex flex-col items-center text-center space-y-6"
     >
-      <h1
-        class="text-4xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400 tracking-tight leading-tight"
-      >
-        {{ data.profile.name }}
-      </h1>
+      <div class="flex flex-col items-center justify-center space-y-2 py-4">
+        <!-- H1: Dynamic Name Handwriting SVG -->
+        <div class="relative w-full max-w-2xl h-20 sm:h-28 md:h-32">
+          <svg class="w-full h-full overflow-visible" viewBox="0 0 800 120">
+            <!-- Ambient Glow Behind Name -->
+            <filter id="cyan-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
 
-      <h2 class="text-xl sm:text-2xl font-bold text-cyan-400">
-        {{ data.profile.role }}
-      </h2>
+            <!-- Handwriting Text Element -->
+            <text
+              x="50%"
+              y="65%"
+              text-anchor="middle"
+              class="handwriting-stroke text-5xl sm:text-7xl md:text-8xl font-black"
+              filter="url(#cyan-glow)"
+            >
+              {{ data.profile.name }}
+            </text>
+          </svg>
+        </div>
 
-      <!-- Contact details with custom icons & interactive actions -->
-      <div
-        class="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-300 pt-2"
-      >
-        <!-- Email (Opens Gmail compose in a new tab) -->
-        <a
-          [href]="
-            'https://mail.google.com/mail/?view=cm&fs=1&to=' +
-            data.profile.email
-          "
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors bg-slate-900/80 border border-slate-800 px-3 py-1.5 rounded-lg"
-        >
-          <img
-            [src]="data.profile.mailIcon"
-            alt="Email"
-            class="w-4 h-4 object-contain"
-          />
-          <span>{{ data.profile.email }}</span>
-        </a>
-        <!-- Mobile (Triggers phone call action / popup) -->
-        <a
-          (click)="openCallPopup($event, data.profile.phone)"
-          [href]="'tel:' + data.profile.phone"
-          class="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors bg-slate-900/80 border border-slate-800 px-3 py-1.5 rounded-lg cursor-pointer"
-        >
-          <img
-            [src]="data.profile.mobileIcon"
-            alt="Mobile"
-            class="w-4 h-4 object-contain"
-          />
-          <span>{{ data.profile.phone }}</span>
-        </a>
-        <!-- Location (Opens Google Maps in a new tab) -->
-        <a
-          [href]="
-            'https://www.google.com/maps/search/?api=1&query=' +
-            data.profile.location
-          "
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors bg-slate-900/80 border border-slate-800 px-3 py-1.5 rounded-lg"
-        >
-          <img
-            [src]="data.profile.locationIcon"
-            alt="Location"
-            class="w-4 h-4 object-contain"
-          />
-          <span>{{ data.profile.location }}</span>
-        </a>
+        <!-- H2: Subtitle Dynamic Handwriting/Typewriter Effect -->
+        <!-- <div class="write-in-delay pt-2">
+  <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/40 border border-cyan-500/30 backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.15)] hover:border-cyan-400/60 transition-all duration-300">
+    <span class="text-cyan-400 font-mono text-xs sm:text-sm font-bold tracking-widest uppercase animate-pulse">&gt;_</span>
+    <h2 class="text-xs sm:text-sm md:text-base font-semibold text-cyan-300 tracking-wider uppercase">
+      {{ data.profile.role }}
+    </h2>
+  </div>
+</div> -->
+        <div class="write-in-delay">
+          <div
+            class="inline-block px-3.5 py-1 rounded-md bg-slate-900/90 border border-slate-800 text-xs sm:text-sm font-mono shadow-inner"
+          >
+            <span class="text-slate-500">const role = </span>
+            <span class="text-cyan-300 font-medium"
+              >"{{ data.profile.role }}"</span
+            >
+            <span class="text-slate-500">;</span>
+          </div>
+        </div>
       </div>
 
-      <!-- LinkedIn Copy Link Button -->
-      <div class="pt-1">
-        <button
-          type="button"
-          (click)="copyLinkedIn(data.profile.linkedin)"
-          class="group relative inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-300 bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 px-4 py-2.5 rounded-xl transition-all hover:text-cyan-400 shadow-md cursor-pointer"
+      <div
+        class="flex flex-col items-center justify-center gap-4 w-full max-w-3xl mx-auto"
+      >
+        <!-- Contact Details Pill Cards -->
+        <div
+          class="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm"
         >
-          <svg class="w-4 h-4 fill-current text-cyan-400" viewBox="0 0 24 24">
-            <path
-              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"
-            />
-          </svg>
-          <span>{{
-            copied ? "Copied LinkedIn Link!" : data.profile.linkedin
-          }}</span>
-          <svg
-            class="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-400 ml-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <!-- Email Button -->
+          <a
+            [href]="
+              'https://mail.google.com/mail/?view=cm&fs=1&to=' +
+              data.profile.email
+            "
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-500/50 hover:-translate-y-0.5 transition-all duration-300"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-            ></path>
-          </svg>
-        </button>
+            <div
+              class="p-1 rounded-lg bg-slate-800/60 group-hover:bg-cyan-950/60 group-hover:text-cyan-400 transition-colors"
+            >
+              <img
+                [src]="data.profile.mailIcon"
+                alt="Email"
+                class="w-4 h-4 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <span
+              class="text-slate-300 font-medium group-hover:text-cyan-300 transition-colors"
+            >
+              {{ data.profile.email }}
+            </span>
+          </a>
+
+          <!-- Mobile Button -->
+          <a
+            (click)="openCallPopup($event, data.profile.phone)"
+            [href]="'tel:' + data.profile.phone"
+            class="group relative inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-500/50 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+          >
+            <div
+              class="p-1 rounded-lg bg-slate-800/60 group-hover:bg-cyan-950/60 group-hover:text-cyan-400 transition-colors"
+            >
+              <img
+                [src]="data.profile.mobileIcon"
+                alt="Mobile"
+                class="w-4 h-4 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <span
+              class="text-slate-300 font-medium group-hover:text-cyan-300 transition-colors"
+            >
+              {{ data.profile.phone }}
+            </span>
+          </a>
+
+          <!-- Location Button -->
+          <a
+            [href]="
+              'https://www.google.com/maps/search/?api=1&query=' +
+              data.profile.location
+            "
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-500/50 hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <div
+              class="p-1 rounded-lg bg-slate-800/60 group-hover:bg-cyan-950/60 group-hover:text-cyan-400 transition-colors"
+            >
+              <img
+                [src]="data.profile.locationIcon"
+                alt="Location"
+                class="w-4 h-4 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <span
+              class="text-slate-300 font-medium group-hover:text-cyan-300 transition-colors"
+            >
+              {{ data.profile.location }}
+            </span>
+          </a>
+        </div>
+
+        <!-- Featured LinkedIn CTA Button -->
+        <div class="pt-1">
+          <button
+            type="button"
+            (click)="copyLinkedIn(data.profile.linkedin)"
+            class="group relative inline-flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-200 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900 border border-cyan-500/30 hover:border-cyan-400/80 px-5 py-2.5 rounded-2xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(6,182,212,0.25)] hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+          >
+            <!-- Background Ambient Glow Highlight -->
+            <span
+              class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            ></span>
+
+            <!-- LinkedIn Icon Badge -->
+            <div
+              class="relative p-1 rounded-md bg-cyan-950/80 border border-cyan-500/40 text-cyan-400 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"
+                />
+              </svg>
+            </div>
+
+            <!-- Text Label -->
+            <span
+              class="relative tracking-wide group-hover:text-white transition-colors"
+            >
+              {{ copied ? "Copied to Clipboard!" : data.profile.linkedin }}
+            </span>
+
+            <!-- Copy Status Icon -->
+            <div
+              class="relative text-slate-400 group-hover:text-cyan-400 transition-colors"
+            >
+              <!-- Default Copy Icon -->
+              <svg
+                *ngIf="!copied"
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                />
+              </svg>
+              <!-- Success Checkmark Icon -->
+              <svg
+                *ngIf="copied"
+                class="w-4 h-4 text-emerald-400 animate-bounce"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+          </button>
+        </div>
       </div>
 
       <!-- Tech Stack & Tools (Including CSS, jQuery, and Tailwind CSS badges) -->
-      <div class="w-full max-w-3xl pt-2">
-        <p
-          class="text-xs uppercase font-bold text-slate-500 tracking-wider mb-3"
+      <div class="w-full max-w-4xl mx-auto pt-4">
+        <div
+          class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-md shadow-lg"
         >
-          Tech Stack & Tools
-        </p>
-        <div class="flex flex-wrap justify-center gap-2">
-          <img
-            src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white"
-            alt="Angular"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black"
-            alt="React"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"
-            alt="TypeScript"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"
-            alt="JavaScript"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=for-the-badge&logo=tailwind-css&logoColor=white"
-            alt="Tailwind CSS"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"
-            alt="CSS"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white"
-            alt="jQuery"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"
-            alt="Node.js"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"
-            alt="PostgreSQL"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white"
-            alt="RxJS"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"
-            alt="Vite"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"
-            alt="HTML5"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white"
-            alt="SCSS"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"
-            alt="Bootstrap"
-            class="h-7 rounded-md"
-          />
-          <img
-            src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"
-            alt="Git"
-            class="h-7 rounded-md"
-          />
+          <!-- Header -->
+          <div class="flex items-center gap-4 mb-5">
+            <div class="h-px flex-1 bg-slate-800"></div>
+            <p
+              class="text-xs uppercase font-extrabold text-cyan-400 tracking-wider"
+            >
+              Tech Stack & Tools
+            </p>
+            <div class="h-px flex-1 bg-slate-800"></div>
+          </div>
+
+          <!-- Badges Wrapper -->
+          <div class="flex flex-wrap justify-center items-center gap-2.5">
+            <div
+              *ngFor="let tech of data.techStack"
+              class="badge-glow-item relative inline-block"
+              [style.--glow-color]="tech.glowColor"
+            >
+              <img
+                [src]="tech.badgeUrl"
+                [alt]="tech.name"
+                class="h-7 rounded-md block"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="scroll-reveal space-y-6">
+    <section id="experience" class="scroll-reveal space-y-4">
       <!-- Section Header -->
       <div
         class="flex items-center justify-between border-b border-slate-800/80 pb-4"
@@ -445,7 +494,7 @@
                     [href]="p.url"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="px-5 py-2.5 rounded-lg bg-cyan-600 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-lg shadow-cyan-500/20 transition-all transform hover:-translate-y-0.5"
+                    class="px-5 py-2.5 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-lg shadow-cyan-500/20 transition-all transform hover:-translate-y-0.5"
                   >
                     <span class="text-white">Visit Live Application</span>
                     <svg

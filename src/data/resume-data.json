@@ -124,15 +124,15 @@
   "education": [
     {
       "degree": "MCA (Master’s Degree)",
-      "institution": "Bharati Vidyapeeth University"
+      "institution": "Bharati Vidyapeeth University, MHA"
     },
     {
       "degree": "BCA (Bachelor’s Degree)",
-      "institution": "Invertis University"
+      "institution": "Invertis University, UP"
     },
     {
       "degree": "Web Development Certification",
-      "institution": "NIIT Delhi"
+      "institution": "NIIT Delhi, India"
     }
   ],
   "techStack": [
@@ -212,5 +212,4 @@
       "glowColor": "rgba(240, 80, 50, 0.75)"
     }
   ]
-
 }

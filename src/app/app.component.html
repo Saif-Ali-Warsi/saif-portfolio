@@ -30,38 +30,27 @@
     class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[450px] bg-gradient-to-b from-cyan-500/10 via-indigo-500/5 to-transparent blur-[120px] pointer-events-none"
   ></div>
 
-  <aside class="fixed bottom-6 right-6 z-50">
-    <a
-      href="assets/saif-cv-developer.pdf"
-      download="saif-cv-developer.pdf"
-      class="group relative inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-slate-900/90 text-slate-100 font-semibold text-xs sm:text-sm tracking-wide border border-cyan-500/30 backdrop-blur-md shadow-xl shadow-cyan-950/40 hover:border-cyan-400 hover:text-cyan-300 hover:scale-105 active:scale-95 transition-all duration-300"
-    >
-      <span class="relative flex h-2 w-2">
-        <span
-          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"
-        ></span>
-        <span
-          class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"
-        ></span>
-      </span>
+<aside class="fixed bottom-6 right-6 z-50">
+  <a
+    [href]="data.profile.linkedin"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn Profile"
+    class="relative group flex items-center justify-center w-12 h-12 rounded-full bg-slate-900/90 text-cyan-400 border border-cyan-500/40 backdrop-blur-md shadow-lg shadow-cyan-950/50 hover:scale-110 hover:border-cyan-300 hover:text-cyan-300 active:scale-95 transition-all duration-300"
+  >
+    <!-- Continuous Pulse Ring -->
+    <span
+      class="absolute inset-0 rounded-full bg-cyan-400/30 animate-ping pointer-events-none"
+    ></span>
 
-      <span>Download Resume</span>
-
-      <svg
-        class="w-4 h-4 text-cyan-400 group-hover:translate-y-0.5 transition-transform duration-300"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-        />
-      </svg>
-    </a>
-  </aside>
+    <!-- LinkedIn SVG Icon -->
+    <svg class="w-6 h-6 fill-current relative z-10" viewBox="0 0 24 24">
+      <path
+        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"
+      />
+    </svg>
+  </a>
+</aside>
 
   <main
     class="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20 space-y-24 relative z-10"
@@ -71,16 +60,13 @@
       class="scroll-reveal pt-4 pb-8 flex flex-col items-center text-center space-y-6"
     >
       <div class="flex flex-col items-center justify-center space-y-2 py-4">
-        <!-- H1: Dynamic Name Handwriting SVG -->
         <div class="relative w-full max-w-2xl h-20 sm:h-28 md:h-32">
           <svg class="w-full h-full overflow-visible" viewBox="0 0 800 120">
-            <!-- Ambient Glow Behind Name -->
             <filter id="cyan-glow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="6" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
 
-            <!-- Handwriting Text Element -->
             <text
               x="50%"
               y="65%"
@@ -93,15 +79,6 @@
           </svg>
         </div>
 
-        <!-- H2: Subtitle Dynamic Handwriting/Typewriter Effect -->
-        <!-- <div class="write-in-delay pt-2">
-  <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/40 border border-cyan-500/30 backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.15)] hover:border-cyan-400/60 transition-all duration-300">
-    <span class="text-cyan-400 font-mono text-xs sm:text-sm font-bold tracking-widest uppercase animate-pulse">&gt;_</span>
-    <h2 class="text-xs sm:text-sm md:text-base font-semibold text-cyan-300 tracking-wider uppercase">
-      {{ data.profile.role }}
-    </h2>
-  </div>
-</div> -->
         <div class="write-in-delay">
           <div
             class="inline-block px-3.5 py-1 rounded-md bg-slate-900/90 border border-slate-800 text-xs sm:text-sm font-mono shadow-inner"
@@ -118,11 +95,9 @@
       <div
         class="flex flex-col items-center justify-center gap-4 w-full max-w-3xl mx-auto"
       >
-        <!-- Contact Details Pill Cards -->
         <div
           class="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm"
         >
-          <!-- Email Button -->
           <a
             [href]="
               'https://mail.google.com/mail/?view=cm&fs=1&to=' +
@@ -148,7 +123,6 @@
             </span>
           </a>
 
-          <!-- Mobile Button -->
           <a
             (click)="openCallPopup($event, data.profile.phone)"
             [href]="'tel:' + data.profile.phone"
@@ -170,7 +144,6 @@
             </span>
           </a>
 
-          <!-- Location Button -->
           <a
             [href]="
               'https://www.google.com/maps/search/?api=1&query=' +
@@ -196,82 +169,12 @@
             </span>
           </a>
         </div>
-
-        <!-- Featured LinkedIn CTA Button -->
-        <div class="pt-1">
-          <button
-            type="button"
-            (click)="copyLinkedIn(data.profile.linkedin)"
-            class="group relative inline-flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-200 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900 border border-cyan-500/30 hover:border-cyan-400/80 px-5 py-2.5 rounded-2xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(6,182,212,0.25)] hover:-translate-y-0.5 cursor-pointer overflow-hidden"
-          >
-            <!-- Background Ambient Glow Highlight -->
-            <span
-              class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            ></span>
-
-            <!-- LinkedIn Icon Badge -->
-            <div
-              class="relative p-1 rounded-md bg-cyan-950/80 border border-cyan-500/40 text-cyan-400 group-hover:scale-110 transition-transform duration-300"
-            >
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path
-                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"
-                />
-              </svg>
-            </div>
-
-            <!-- Text Label -->
-            <span
-              class="relative tracking-wide group-hover:text-white transition-colors"
-            >
-              {{ copied ? "Copied to Clipboard!" : data.profile.linkedin }}
-            </span>
-
-            <!-- Copy Status Icon -->
-            <div
-              class="relative text-slate-400 group-hover:text-cyan-400 transition-colors"
-            >
-              <!-- Default Copy Icon -->
-              <svg
-                *ngIf="!copied"
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                />
-              </svg>
-              <!-- Success Checkmark Icon -->
-              <svg
-                *ngIf="copied"
-                class="w-4 h-4 text-emerald-400 animate-bounce"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.5"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-          </button>
-        </div>
       </div>
 
-      <!-- Tech Stack & Tools (Including CSS, jQuery, and Tailwind CSS badges) -->
       <div class="w-full max-w-4xl mx-auto pt-4">
         <div
           class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-md shadow-lg"
         >
-          <!-- Header -->
           <div class="flex items-center gap-4 mb-5">
             <div class="h-px flex-1 bg-slate-800"></div>
             <p
@@ -282,7 +185,6 @@
             <div class="h-px flex-1 bg-slate-800"></div>
           </div>
 
-          <!-- Badges Wrapper -->
           <div class="flex flex-wrap justify-center items-center gap-2.5">
             <div
               *ngFor="let tech of data.techStack"
@@ -301,7 +203,6 @@
     </section>
 
     <section id="experience" class="scroll-reveal space-y-4">
-      <!-- Section Header -->
       <div
         class="flex items-center justify-between border-b border-slate-800/80 pb-4"
       >
@@ -331,13 +232,11 @@
         </span>
       </div>
 
-      <!-- Horizontal Cards Grid/List -->
       <div class="space-y-4">
         @for (exp of data.experience; track exp.company; let i = $index) {
           <article
             class="relative p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-slate-950/80 border border-slate-800/80 backdrop-blur-md shadow-lg hover:border-cyan-500/50 hover:shadow-cyan-500/10 transition-all duration-300 group overflow-hidden"
           >
-            <!-- Subtle Glow Edge -->
             <div
               class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 to-blue-600 opacity-60 group-hover:opacity-100 transition-opacity"
             ></div>
@@ -345,9 +244,7 @@
             <div
               class="flex flex-col sm:flex-row sm:items-center justify-between gap-4"
             >
-              <!-- Left: Logo + Info Block -->
               <div class="flex items-center gap-4 sm:gap-5">
-                <!-- Prominent Company Logo Box -->
                 <div
                   class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white border border-slate-700/80 p-2 shrink-0 flex items-center justify-center shadow-md group-hover:border-cyan-400/60 group-hover:scale-105 transition-all duration-300"
                 >
@@ -359,7 +256,6 @@
                   />
                 </div>
 
-                <!-- Text Stack -->
                 <div class="space-y-1">
                   <div class="flex items-center gap-2 flex-wrap">
                     <h3
@@ -367,11 +263,6 @@
                     >
                       {{ exp.company }}
                     </h3>
-                    <!-- @if (i === 0) {
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded-full">
-                    Current Role
-                  </span>
-                } -->
                   </div>
 
                   <div
@@ -409,7 +300,6 @@
                 </div>
               </div>
 
-              <!-- Right: Duration Badge -->
               <div class="self-start sm:self-center shrink-0">
                 <div
                   class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-950/80 border border-slate-800 group-hover:border-cyan-500/40 transition-colors shadow-inner"
@@ -582,10 +472,9 @@
       </div>
     </section>
 
-<!-- GitHub Activity Section -->
-<section id="github-activity" class="scroll-reveal space-y-6">
-  <app-github-stats></app-github-stats>
-</section>
+    <section id="github-activity" class="scroll-reveal space-y-6">
+      <app-github-stats></app-github-stats>
+    </section>
 
     <section id="education" class="scroll-reveal space-y-6">
       <div class="flex items-center gap-3 border-b border-slate-800/80 pb-4">

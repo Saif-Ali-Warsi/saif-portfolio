@@ -5,7 +5,7 @@
     "location": "Pune, India",
     "email": "warsivorlox@gmail.com",
     "phone": "+91 9370084757",
-    "linkedin": "linkedin.com/in/saif-ali-8019a811b",
+    "linkedin": "https://www.linkedin.com/in/saif-ali-8019a811b/",
     "locationIcon": "https://www.image2url.com/r2/default/images/1788678605260-10e82310-9417-4aac-8ef9-b3fd17944a58.png",
     "mailIcon": "https://www.image2url.com/r2/default/images/1788678613641-94d83870-2c80-4683-84a7-fd61396b4c5b.png",
     "mobileIcon": "https://www.image2url.com/r2/default/images/1788601355397-c4a904ec-f794-445a-9cf4-c4f3e9d8af4c.png",
@@ -132,10 +132,9 @@
     },
     {
       "degree": "Web Development Certification",
-      "institution": "NIIT"
+      "institution": "NIIT Delhi"
     }
   ],
-
   "techStack": [
     {
       "name": "Angular",

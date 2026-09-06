@@ -1,11 +1,12 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import portfolioData from '../../src/data/resume-data.json';
+import { GithubStatsComponent } from './components/github-stats/github-stats.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, GithubStatsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

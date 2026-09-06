@@ -53,11 +53,11 @@
 </aside>
 
   <main
-    class="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20 space-y-24 relative z-10"
+    class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-20 space-y-24 relative z-10"
   >
     <section
       id="hero"
-      class="scroll-reveal pt-4 pb-8 flex flex-col items-center text-center space-y-6"
+      class="scroll-reveal pt-2 pb-8 flex flex-col items-center text-center space-y-6"
     >
       <div class="flex flex-col items-center justify-center space-y-2 py-4">
         <div class="relative w-full max-w-2xl h-20 sm:h-28 md:h-32">
@@ -71,7 +71,7 @@
               x="50%"
               y="65%"
               text-anchor="middle"
-              class="handwriting-stroke text-5xl sm:text-7xl md:text-8xl font-black"
+              class="handwriting-stroke text-8xl font-black"
               filter="url(#cyan-glow)"
             >
               {{ data.profile.name }}
@@ -173,7 +173,7 @@
 
       <div class="w-full max-w-4xl mx-auto pt-4">
         <div
-          class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-md shadow-lg"
+          class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-md shadow-lg"
         >
           <div class="flex items-center gap-4 mb-5">
             <div class="h-px flex-1 bg-slate-800"></div>
@@ -217,7 +217,7 @@
             />
           </div>
           <div>
-            <h2 class="text-2xl font-bold text-white tracking-wide">
+            <h2 class="text-xl sm:text-2xl font-bold text-white tracking-wide">
               Work Experience
             </h2>
             <p class="text-xs text-slate-400 hidden sm:block">
@@ -345,7 +345,7 @@
             />
           </div>
           <div>
-            <h2 class="text-2xl font-bold text-white tracking-wide">
+            <h2 class="text-xl sm:text-2xl font-bold text-white tracking-wide">
               Featured Projects
             </h2>
             <p class="text-xs text-slate-400 hidden sm:block">
@@ -357,7 +357,7 @@
         <span
           class="text-xs font-mono text-cyan-400 bg-cyan-950/40 border border-cyan-800/50 px-3 py-1 rounded-full"
         >
-          {{ data.projects.length }} Applications
+          {{ data.projects.length }} Apps
         </span>
       </div>
 
@@ -488,7 +488,7 @@
           />
         </div>
         <div>
-          <h2 class="text-2xl font-bold text-white tracking-wide">Education</h2>
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-wide">Education</h2>
           <p class="text-xs text-slate-400 hidden sm:block">
             Academic foundation and specialized training in computer
             applications, software engineering, and core web technologies.
@@ -496,21 +496,27 @@
         </div>
       </div>
 
-      <div
-        class="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-lg"
-      >
-        <ul class="space-y-3">
-          <li
-            class="flex items-center gap-3 text-slate-300 text-xs sm:text-sm"
-            *ngFor="let e of data.education"
-          >
-            <span class="w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span>
-            <span class="font-medium">{{ e.degree }}</span>
-            <span class="text-slate-500">•</span>
-            <span class="text-slate-400">{{ e.institution }}</span>
-          </li>
-        </ul>
+     <div class="space-y-3">
+  <div
+    *ngFor="let e of data.education"
+    class="p-4 sm:p-5 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-md hover:border-cyan-500/40 transition-all duration-300"
+  >
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4">
+      <!-- Degree & Accent Indicator -->
+      <div class="flex items-start sm:items-center gap-2.5">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 shrink-0 mt-1.5 sm:mt-0 shadow-[0_0_8px_rgba(34,211,238,0.6)]"></span>
+        <h3 class="text-sm sm:text-base font-semibold text-slate-100 tracking-tight">
+          {{ e.degree }}
+        </h3>
       </div>
+
+      <!-- Institution Name -->
+      <div class="pl-4 sm:pl-0 text-xs sm:text-sm text-slate-400 font-medium">
+        {{ e.institution }}
+      </div>
+    </div>
+  </div>
+</div>
     </section>
   </main>
 </div>

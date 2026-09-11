@@ -53,6 +53,16 @@
   ],
   "projects": [
     {
+      "name": "HireUP",
+      "desc": "AI-Powered Recruitment & Candidate Screening Platform",
+      "role": "Full Stack Developer",
+      "image": "https://www.image2url.com/r2/default/images/1789105448047-3e319526-1373-45de-9445-a81639db0f7b.png",
+      "url": "https://saif-ali-warsi.github.io/hire-up-frontend",
+      "points": [
+        "An AI-powered recruitment platform that enables recruiters to create job requirements, upload multiple resumes, analyze candidates using Google Gemini, evaluate requirement matches, and rank candidates based on their suitability for the role."
+      ]
+    },
+    {
       "name": "Crew Desk HRMS",
       "desc": "Human Resource Management System",
       "role": "Full Stack Developer",

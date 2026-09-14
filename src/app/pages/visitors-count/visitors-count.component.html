@@ -1,20 +1,20 @@
 <div class="min-h-screen bg-[#09090b] text-gray-100 px-4 py-12 sm:px-6 lg:px-8 relative overflow-hidden flex flex-col items-center">
   
-  <!-- Background Glow Effects for Ultra-Rich Look -->
+  <!-- Ambient Gold Glow Backgrounds -->
   <div class="absolute top-0 left-1/4 w-96 h-96 bg-amber-600/10 rounded-full blur-[120px] pointer-events-none"></div>
   <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-yellow-600/5 rounded-full blur-[140px] pointer-events-none"></div>
 
-  <div class="w-full max-w-5xl mx-auto relative z-10 space-y-10">
+  <div class="w-full max-w-6xl mx-auto relative z-10 space-y-10">
     
     <!-- Header -->
     <div class="text-center space-y-2">
       <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-600">
-        Portfolio Visitors
+        Portfolio Visitors Intelligence
       </h1>
-      <p class="text-sm text-gray-400">Secure analytics and visitor telemetry</p>
+      <p class="text-sm text-gray-400">Secure real-time telemetry & visitor analytics</p>
     </div>
 
-    <!-- Admin Key Section -->
+    <!-- Admin Key -->
     @if (!stats) {
       <div class="max-w-md mx-auto bg-zinc-900/80 backdrop-blur-xl border border-amber-500/20 p-8 rounded-2xl shadow-2xl shadow-black/60 relative group">
         <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-amber-500/5 to-transparent pointer-events-none"></div>
@@ -43,7 +43,7 @@
           </button>
 
           @if (error) {
-            <div class="p-3 rounded-lg bg-red-950/40 border border-red-500/30 text-red-400 text-xs text-center animate-shake">
+            <div class="p-3 rounded-lg bg-red-950/40 border border-red-500/30 text-red-400 text-xs text-center">
               {{ error }}
             </div>
           }
@@ -51,14 +51,14 @@
       </div>
     }
 
-    <!-- Statistics Section -->
+    <!-- Statistics Dashboard -->
     @if (stats) {
       <div class="space-y-10 animate-fade-in">
         
-        <!-- Stats Grid -->
+        <!-- Summary Cards Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           
-          <!-- Total Card -->
+          <!-- Total Unique Users -->
           <div class="bg-zinc-900/60 backdrop-blur-md border border-amber-500/20 hover:border-amber-500/40 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between group">
             <span class="text-xs font-medium uppercase tracking-wider text-gray-400 group-hover:text-amber-400 transition-colors">Total Unique Visitors</span>
             <strong class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-400 mt-3">
@@ -66,7 +66,7 @@
             </strong>
           </div>
 
-          <!-- Desktop Card -->
+          <!-- Desktop Breakdown -->
           <div class="bg-zinc-900/60 backdrop-blur-md border border-zinc-800 hover:border-amber-500/30 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between group">
             <span class="text-xs font-medium uppercase tracking-wider text-gray-400 group-hover:text-amber-400 transition-colors">Desktop</span>
             <strong class="text-2xl font-bold text-gray-100 mt-3">
@@ -74,7 +74,7 @@
             </strong>
           </div>
 
-          <!-- Mobile Card -->
+          <!-- Mobile Breakdown -->
           <div class="bg-zinc-900/60 backdrop-blur-md border border-zinc-800 hover:border-amber-500/30 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between group">
             <span class="text-xs font-medium uppercase tracking-wider text-gray-400 group-hover:text-amber-400 transition-colors">Mobile</span>
             <strong class="text-2xl font-bold text-gray-100 mt-3">
@@ -82,7 +82,7 @@
             </strong>
           </div>
 
-          <!-- Tablet Card -->
+          <!-- Tablet Breakdown -->
           <div class="bg-zinc-900/60 backdrop-blur-md border border-zinc-800 hover:border-amber-500/30 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between group">
             <span class="text-xs font-medium uppercase tracking-wider text-gray-400 group-hover:text-amber-400 transition-colors">Tablet</span>
             <strong class="text-2xl font-bold text-gray-100 mt-3">
@@ -92,40 +92,69 @@
 
         </div>
 
-        <!-- Visitor Details List -->
+        <!-- Visitor Details Section -->
         <div class="space-y-4">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-            <h2 class="text-xl font-bold tracking-tight text-amber-200">Visitor Logs</h2>
-            <span class="text-xs text-zinc-500 font-mono">Showing all telemetry records</span>
+            <h2 class="text-xl font-bold tracking-tight text-amber-200">Visitor Telemetry Records</h2>
+            <span class="text-xs text-zinc-500 font-mono">Live Sessions</span>
           </div>
 
-          <div class="grid grid-cols-1 gap-3">
+          <div class="grid grid-cols-1 gap-4">
             @for (visitor of stats.visitors; track visitor.id) {
-              <div class="bg-zinc-900/40 hover:bg-zinc-900/80 border border-zinc-800/80 hover:border-amber-500/30 p-4 sm:p-5 rounded-xl transition-all duration-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div class="bg-zinc-900/40 hover:bg-zinc-900/80 border border-zinc-800/80 hover:border-amber-500/30 p-5 sm:p-6 rounded-2xl transition-all duration-300 space-y-4">
                 
-                <!-- Left: Device & OS info -->
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xs uppercase shrink-0">
-                    {{ visitor.device_type ? visitor.device_type.substring(0, 2) : 'DEV' }}
-                  </div>
-                  <div class="space-y-0.5">
-                    <div class="flex items-center gap-2">
-                      <strong class="text-sm font-semibold text-gray-200">{{ visitor.device_type || 'Unknown Device' }}</strong>
-                      <span class="text-[10px] px-2 py-0.5 rounded-full bg-zinc-800 text-amber-300/90 border border-amber-500/10 font-mono">{{ visitor.os }}</span>
+                <!-- Top Row: Device Info & IP/Visits -->
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  
+                  <!-- Device & OS Info -->
+                  <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm uppercase shrink-0">
+                      {{ visitor.device_type ? visitor.device_type.substring(0, 2) : 'DV' }}
                     </div>
-                    <p class="text-xs text-gray-400">{{ visitor.browser }}</p>
+                    <div class="space-y-1">
+                      <div class="flex flex-wrap items-center gap-2">
+                        <strong class="text-sm font-bold text-gray-100">{{ visitor.browser }}</strong>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-zinc-800 text-amber-300/90 border border-amber-500/10 font-mono">{{ visitor.os }}</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 font-mono capitalize">{{ visitor.device_type }}</span>
+                      </div>
+                      <p class="text-xs font-mono text-zinc-500">UUID: {{ visitor.visitor_id }}</p>
+                    </div>
                   </div>
+
+                  <!-- IP & Visit Count Badges -->
+                  <div class="flex items-center gap-3 self-start sm:self-auto">
+                    <div class="font-mono text-xs text-gray-300 bg-zinc-950/80 px-3 py-2 rounded-xl border border-zinc-800/80 shadow-inner">
+                      <span class="text-zinc-500 mr-1.5">IP:</span>{{ visitor.ip_address }}
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/20 text-amber-300 px-3 py-2 rounded-xl text-xs font-medium">
+                      <span>Visits:</span>
+                      <strong class="font-bold text-amber-200">{{ visitor.visit_count }}</strong>
+                    </div>
+                  </div>
+
                 </div>
 
-                <!-- Right: IP & Visits -->
-                <div class="flex items-center justify-between sm:justify-end gap-6 text-xs border-t sm:border-t-0 pt-3 sm:pt-0 border-zinc-800/80">
-                  <div class="font-mono text-gray-400 bg-zinc-950/60 px-3 py-1.5 rounded-lg border border-zinc-800/50">
-                    {{ visitor.ip_address }}
+                <!-- Bottom Row: Location & Timestamps Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-zinc-800/60 text-xs text-zinc-400">
+                  
+                  <!-- Location -->
+                  <div class="flex items-center gap-2 bg-zinc-950/40 px-3 py-2 rounded-xl border border-zinc-800/40">
+                    <span class="text-amber-500/70 font-semibold">Location:</span>
+                    <span class="text-gray-300 capitalize">{{ visitor.city }}, {{ visitor.region }}, {{ visitor.country }}</span>
                   </div>
-                  <div class="flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/20 text-amber-300 px-3 py-1.5 rounded-lg font-medium">
-                    <span>Visits:</span>
-                    <strong class="font-bold">{{ visitor.visit_count }}</strong>
+
+                  <!-- First Visit -->
+                  <div class="flex items-center gap-2 bg-zinc-950/40 px-3 py-2 rounded-xl border border-zinc-800/40 font-mono">
+                    <span class="text-amber-500/70 font-semibold font-sans">First:</span>
+                    <span class="text-gray-300">{{ visitor.first_visit | date:'medium' }}</span>
                   </div>
+
+                  <!-- Last Visit -->
+                  <div class="flex items-center gap-2 bg-zinc-950/40 px-3 py-2 rounded-xl border border-zinc-800/40 font-mono">
+                    <span class="text-amber-500/70 font-semibold font-sans">Last:</span>
+                    <span class="text-gray-300">{{ visitor.last_visit | date:'medium' }}</span>
+                  </div>
+
                 </div>
 
               </div>

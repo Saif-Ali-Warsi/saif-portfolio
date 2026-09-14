@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { VisitorStatsService, VisitorStats } from '../../services/visitor-stats.service';
 import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-visitors-count',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, DatePipe],
   templateUrl: './visitors-count.component.html',
   styleUrl: './visitors-count.component.scss'
 })

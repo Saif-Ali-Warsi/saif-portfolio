@@ -9,6 +9,9 @@ export interface Visitor {
   device_type: string;
   browser: string;
   os: string;
+  country: string;
+  region: string;
+  city: string;
   first_visit: string;
   last_visit: string;
   visit_count: number;

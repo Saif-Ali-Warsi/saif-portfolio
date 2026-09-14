@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VisitorService {
 
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'https://portfolio-user-counter.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 

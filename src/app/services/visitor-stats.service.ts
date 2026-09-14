@@ -29,7 +29,7 @@ export interface VisitorStats {
 })
 export class VisitorStatsService {
 
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'https://portfolio-user-counter.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 

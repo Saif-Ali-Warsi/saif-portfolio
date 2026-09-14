@@ -1,0 +1,140 @@
+<div class="min-h-screen bg-[#09090b] text-gray-100 px-4 py-12 sm:px-6 lg:px-8 relative overflow-hidden flex flex-col items-center">
+  
+  <!-- Background Glow Effects for Ultra-Rich Look -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-amber-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-yellow-600/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <div class="w-full max-w-5xl mx-auto relative z-10 space-y-10">
+    
+    <!-- Header -->
+    <div class="text-center space-y-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-600">
+        Portfolio Visitors
+      </h1>
+      <p class="text-sm text-gray-400">Secure analytics and visitor telemetry</p>
+    </div>
+
+    <!-- Admin Key Section -->
+    @if (!stats) {
+      <div class="max-w-md mx-auto bg-zinc-900/80 backdrop-blur-xl border border-amber-500/20 p-8 rounded-2xl shadow-2xl shadow-black/60 relative group">
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-amber-500/5 to-transparent pointer-events-none"></div>
+        
+        <div class="relative z-10 space-y-5">
+          <div class="space-y-1">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-amber-400/80">Access Authentication</label>
+            <input
+              type="password"
+              placeholder="Enter admin key..."
+              [(ngModel)]="adminKey"
+              class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-gray-100 placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all duration-300"
+            />
+          </div>
+
+          <button
+            type="button"
+            (click)="loadStats()"
+            [disabled]="loading"
+            class="w-full relative group/btn overflow-hidden rounded-xl p-[1px] font-semibold focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span class="absolute inset-0 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 rounded-xl transition-all duration-300 group-hover/btn:opacity-90"></span>
+            <span class="relative block px-5 py-3 rounded-[11px] bg-zinc-950 text-amber-300 group-hover/btn:bg-transparent group-hover/btn:text-zinc-950 transition-all duration-300 text-sm tracking-wide">
+              {{ loading ? 'Authenticating...' : 'View Statistics' }}
+            </span>
+          </button>
+
+          @if (error) {
+            <div class="p-3 rounded-lg bg-red-950/40 border border-red-500/30 text-red-400 text-xs text-center animate-shake">
+              {{ error }}
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Statistics Section -->
+    @if (stats) {
+      <div class="space-y-10 animate-fade-in">
+        
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- Total Card -->
+          <div class="bg-zinc-900/60 backdrop-blur-md border border-amber-500/20 hover:border-amber-500/40 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between group">
+            <span class="text-xs font-medium uppercase tracking-wider text-gray-400 group-hover:text-amber-400 transition-colors">Total Unique Visitors</span>
+            <strong class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-400 mt-3">
+              {{ stats.totalUniqueUsers }}
+            </strong>
+          </div>
+
+          <!-- Desktop Card -->
+          <div class="bg-zinc-900/60 backdrop-blur-md border border-zinc-800 hover:border-amber-500/30 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between group">
+            <span class="text-xs font-medium uppercase tracking-wider text-gray-400 group-hover:text-amber-400 transition-colors">Desktop</span>
+            <strong class="text-2xl font-bold text-gray-100 mt-3">
+              {{ stats.byDevice.desktop || 0 }}
+            </strong>
+          </div>
+
+          <!-- Mobile Card -->
+          <div class="bg-zinc-900/60 backdrop-blur-md border border-zinc-800 hover:border-amber-500/30 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between group">
+            <span class="text-xs font-medium uppercase tracking-wider text-gray-400 group-hover:text-amber-400 transition-colors">Mobile</span>
+            <strong class="text-2xl font-bold text-gray-100 mt-3">
+              {{ stats.byDevice.mobile || 0 }}
+            </strong>
+          </div>
+
+          <!-- Tablet Card -->
+          <div class="bg-zinc-900/60 backdrop-blur-md border border-zinc-800 hover:border-amber-500/30 p-6 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between group">
+            <span class="text-xs font-medium uppercase tracking-wider text-gray-400 group-hover:text-amber-400 transition-colors">Tablet</span>
+            <strong class="text-2xl font-bold text-gray-100 mt-3">
+              {{ stats.byDevice.tablet || 0 }}
+            </strong>
+          </div>
+
+        </div>
+
+        <!-- Visitor Details List -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+            <h2 class="text-xl font-bold tracking-tight text-amber-200">Visitor Logs</h2>
+            <span class="text-xs text-zinc-500 font-mono">Showing all telemetry records</span>
+          </div>
+
+          <div class="grid grid-cols-1 gap-3">
+            @for (visitor of stats.visitors; track visitor.id) {
+              <div class="bg-zinc-900/40 hover:bg-zinc-900/80 border border-zinc-800/80 hover:border-amber-500/30 p-4 sm:p-5 rounded-xl transition-all duration-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                
+                <!-- Left: Device & OS info -->
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xs uppercase shrink-0">
+                    {{ visitor.device_type ? visitor.device_type.substring(0, 2) : 'DEV' }}
+                  </div>
+                  <div class="space-y-0.5">
+                    <div class="flex items-center gap-2">
+                      <strong class="text-sm font-semibold text-gray-200">{{ visitor.device_type || 'Unknown Device' }}</strong>
+                      <span class="text-[10px] px-2 py-0.5 rounded-full bg-zinc-800 text-amber-300/90 border border-amber-500/10 font-mono">{{ visitor.os }}</span>
+                    </div>
+                    <p class="text-xs text-gray-400">{{ visitor.browser }}</p>
+                  </div>
+                </div>
+
+                <!-- Right: IP & Visits -->
+                <div class="flex items-center justify-between sm:justify-end gap-6 text-xs border-t sm:border-t-0 pt-3 sm:pt-0 border-zinc-800/80">
+                  <div class="font-mono text-gray-400 bg-zinc-950/60 px-3 py-1.5 rounded-lg border border-zinc-800/50">
+                    {{ visitor.ip_address }}
+                  </div>
+                  <div class="flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/20 text-amber-300 px-3 py-1.5 rounded-lg font-medium">
+                    <span>Visits:</span>
+                    <strong class="font-bold">{{ visitor.visit_count }}</strong>
+                  </div>
+                </div>
+
+              </div>
+            }
+          </div>
+        </div>
+
+      </div>
+    }
+
+  </div>
+</div>

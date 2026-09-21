@@ -27,7 +27,7 @@ export class GithubStatsComponent implements OnInit {
         if (data && data.totalContributions !== undefined) {
           this.totalContributions = data.totalContributions;
         } else {
-          this.totalContributions = 468; // Fallback value
+          this.totalContributions = 668; // Fallback value
         }
         this.loading = false;
       },

@@ -1,30 +1,7 @@
 <div
   class="min-h-screen bg-[#070A11] text-slate-200 selection:bg-cyan-500 selection:text-black font-sans antialiased relative overflow-x-hidden"
 >
-  <div class="global-grid-bg">
-    <div class="shine"></div>
-    <div class="tiles">
-      <div class="tile tile-1"></div>
-      <div class="tile tile-2"></div>
-      <div class="tile tile-3"></div>
-      <div class="tile tile-4"></div>
-      <div class="tile tile-5"></div>
-      <div class="tile tile-6"></div>
-      <div class="tile tile-7"></div>
-      <div class="tile tile-8"></div>
-      <div class="tile tile-9"></div>
-      <div class="tile tile-10"></div>
-    </div>
-    <div class="lines">
-      <div class="line h-1"></div>
-      <div class="line h-2"></div>
-      <div class="line h-3"></div>
-      <div class="line h-4"></div>
-      <div class="line v-1"></div>
-      <div class="line v-2"></div>
-      <div class="line v-3"></div>
-    </div>
-  </div>
+  <app-global-grids></app-global-grids>
 
   <div
     class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[450px] bg-gradient-to-b from-cyan-500/10 via-indigo-500/5 to-transparent blur-[120px] pointer-events-none"
@@ -471,7 +448,7 @@
         }
       </div>
     </section>
-    
+
     @if (true) {
       <section id="github-activity" class="scroll-reveal space-y-6">
         <app-github-stats></app-github-stats>

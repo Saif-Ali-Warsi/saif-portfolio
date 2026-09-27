@@ -9,12 +9,13 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import portfolioData from '../../../data/resume-data.json';
 import { GithubStatsComponent } from '../../components/github-stats/github-stats.component';
 import { VisitorService } from '../../services/visitor.service';
+import { GlobalGridsComponent } from '../../components/global-grids/global-grids.component';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, GithubStatsComponent],
+  imports: [CommonModule, GithubStatsComponent, GlobalGridsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

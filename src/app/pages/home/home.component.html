@@ -32,6 +32,12 @@
   <main
     class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-20 space-y-24 relative z-10"
   >
+
+<div class="scroll-reveal">
+  <app-hero-section></app-hero-section>
+</div>
+
+  @if(false){
     <section
       id="hero"
       class="scroll-reveal pt-2 pb-8 flex flex-col items-center text-center space-y-6"
@@ -101,7 +107,7 @@
           </a>
 
           <a
-            (click)="openCallPopup($event, data.profile.phone)"
+            
             [href]="'tel:' + data.profile.phone"
             class="group relative inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-500/50 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
           >
@@ -178,7 +184,7 @@
         </div>
       </div>
     </section>
-
+  }
     <section id="experience" class="scroll-reveal space-y-4">
       <div
         class="flex items-center justify-between border-b border-slate-800/80 pb-4"

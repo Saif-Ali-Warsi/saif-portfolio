@@ -10,12 +10,13 @@ import portfolioData from '../../../data/resume-data.json';
 import { GithubStatsComponent } from '../../components/github-stats/github-stats.component';
 import { VisitorService } from '../../services/visitor.service';
 import { GlobalGridsComponent } from '../../components/global-grids/global-grids.component';
+import { HeroSectionComponent } from '../../components/hero-section/hero-section.component';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, GithubStatsComponent, GlobalGridsComponent],
+  imports: [CommonModule, GithubStatsComponent, GlobalGridsComponent, HeroSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -62,23 +63,5 @@ export class HomeComponent implements AfterViewInit, OnInit {
     return !!this.expandedProjects[index];
   }
 
-  copyLinkedIn(url: string) {
-    const fullUrl = url.startsWith('http') ? url : 'https://' + url;
-    navigator.clipboard.writeText(fullUrl).then(() => {
-      this.copied = true;
-      setTimeout(() => {
-        this.copied = false;
-      }, 2000);
-    });
-  }
 
-  openCallPopup(event: Event, phone: string) {
-    // Allows default tel: behavior on mobile, shows prompt/fallback on desktop if needed
-    if (!window.matchMedia('(max-width: 768px)').matches) {
-      event.preventDefault();
-      alert(
-        `Phone number: ${phone}\n(Clicking will launch your default calling application on supported devices)`,
-      );
-    }
-  }
 }

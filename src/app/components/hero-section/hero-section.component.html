@@ -1,0 +1,144 @@
+<section
+  id="hero"
+  class="pt-2 pb-8 flex flex-col items-center text-center space-y-6"
+>
+  <div class="flex flex-col items-center justify-center space-y-2 py-4">
+    <div class="relative w-full max-w-2xl h-20 sm:h-28 md:h-32">
+      <svg class="w-full h-full overflow-visible" viewBox="0 0 800 120">
+        <filter id="cyan-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="6" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+
+        <text
+          x="50%"
+          y="65%"
+          text-anchor="middle"
+          class="handwriting-stroke text-8xl font-black"
+          filter="url(#cyan-glow)"
+        >
+          {{ data.profile.name }}
+        </text>
+      </svg>
+    </div>
+
+    <div class="write-in-delay">
+      <div
+        class="inline-block px-3.5 py-1 rounded-md bg-slate-900/90 border border-slate-800 text-xs sm:text-sm font-mono shadow-inner"
+      >
+        <span class="text-slate-500">const role = </span>
+        <span class="text-cyan-300 font-medium">"{{ data.profile.role }}"</span>
+        <span class="text-slate-500">;</span>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col items-center justify-center gap-4 w-full max-w-3xl mx-auto"
+  >
+    <div
+      class="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm"
+    >
+      <a
+        [href]="
+          'https://mail.google.com/mail/?view=cm&fs=1&to=' + data.profile.email
+        "
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-500/50 hover:-translate-y-0.5 transition-all duration-300"
+      >
+        <div
+          class="p-1 rounded-lg bg-slate-800/60 group-hover:bg-cyan-950/60 group-hover:text-cyan-400 transition-colors"
+        >
+          <img
+            [src]="data.profile.mailIcon"
+            alt="Email"
+            class="w-4 h-4 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+          />
+        </div>
+        <span
+          class="text-slate-300 font-medium group-hover:text-cyan-300 transition-colors"
+        >
+          {{ data.profile.email }}
+        </span>
+      </a>
+
+      <a
+        (click)="openCallPopup($event, data.profile.phone)"
+        [href]="'tel:' + data.profile.phone"
+        class="group relative inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-500/50 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+      >
+        <div
+          class="p-1 rounded-lg bg-slate-800/60 group-hover:bg-cyan-950/60 group-hover:text-cyan-400 transition-colors"
+        >
+          <img
+            [src]="data.profile.mobileIcon"
+            alt="Mobile"
+            class="w-4 h-4 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+          />
+        </div>
+        <span
+          class="text-slate-300 font-medium group-hover:text-cyan-300 transition-colors"
+        >
+          {{ data.profile.phone }}
+        </span>
+      </a>
+
+      <a
+        [href]="
+          'https://www.google.com/maps/search/?api=1&query=' +
+          data.profile.location
+        "
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-500/50 hover:-translate-y-0.5 transition-all duration-300"
+      >
+        <div
+          class="p-1 rounded-lg bg-slate-800/60 group-hover:bg-cyan-950/60 group-hover:text-cyan-400 transition-colors"
+        >
+          <img
+            [src]="data.profile.locationIcon"
+            alt="Location"
+            class="w-4 h-4 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+          />
+        </div>
+        <span
+          class="text-slate-300 font-medium group-hover:text-cyan-300 transition-colors"
+        >
+          {{ data.profile.location }}
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="w-full max-w-4xl mx-auto pt-4">
+    <div
+      class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-md shadow-lg"
+    >
+      <div class="flex items-center gap-4 mb-5">
+        <div class="h-px flex-1 bg-slate-800"></div>
+        <p
+          class="text-xs uppercase font-extrabold text-cyan-400 tracking-wider"
+        >
+          Tech Stack & Tools
+        </p>
+        <div class="h-px flex-1 bg-slate-800"></div>
+      </div>
+
+      <div class="flex flex-wrap justify-center items-center gap-2.5">
+        @for (tech of data.techStack; track $index) {
+          <div
+            class="badge-glow-item relative inline-block"
+            [style.--glow-color]="tech.glowColor"
+          >
+            <img
+              [src]="tech.badgeUrl"
+              [alt]="tech.name"
+              class="h-7 rounded-md block"
+            />
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

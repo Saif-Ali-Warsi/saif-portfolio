@@ -83,6 +83,16 @@
       ]
     },
     {
+      "name": "Dark Neomorphic Ecommerce App",
+      "desc": "A modern e-commerce application built with React, TypeScript, and Vite, featuring product browsing, search, filtering, sorting, shopping cart, wishlist, authentication, and a validated checkout flow.",
+      "role": "Frontend Developer",
+      "image": "https://www.image2url.com/r2/default/images/1792079418055-b32db9e3-df75-4f2f-b2b0-dc4f117daed1.jpg",
+      "url": "https://saif-ali-warsi.github.io/ecommerce-app-frontend/",
+      "points": [
+        "A modern React e-commerce app featuring product browsing, search, cart, wishlist, authentication, and checkout."
+      ]
+    },
+    {
       "name": "Hyper Inventory",
       "desc": "Warehouse & Inventory Management",
       "role": "Frontend Developer",
